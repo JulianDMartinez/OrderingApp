@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		1DA1C9CD26221CCC00D09F97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9CC26221CCC00D09F97 /* AppDelegate.swift */; };
 		1DA1C9CF26221CCC00D09F97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9CE26221CCC00D09F97 /* SceneDelegate.swift */; };
-		1DA1C9D126221CCC00D09F97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9D026221CCC00D09F97 /* ViewController.swift */; };
 		1DA1C9D626221CCE00D09F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA1C9D526221CCE00D09F97 /* Assets.xcassets */; };
 		1DA1C9D926221CCE00D09F97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA1C9D726221CCE00D09F97 /* LaunchScreen.storyboard */; };
 		1DA1C9E62622218000D09F97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9E52622218000D09F97 /* Constants.swift */; };
+		1DA1C9EF26222DA400D09F97 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9EE26222DA400D09F97 /* MenuViewController.swift */; };
+		1DA1C9F226222DC400D09F97 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9F126222DC400D09F97 /* OrderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DA1C9C926221CCC00D09F97 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA1C9CC26221CCC00D09F97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DA1C9CE26221CCC00D09F97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1DA1C9D026221CCC00D09F97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DA1C9D526221CCE00D09F97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DA1C9D826221CCE00D09F97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1DA1C9DA26221CCE00D09F97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DA1C9DA26221CCE00D09F97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Restaurant/Utility/Info.plist; sourceTree = SOURCE_ROOT; };
 		1DA1C9E52622218000D09F97 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1DA1C9EE26222DA400D09F97 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1DA1C9F126222DC400D09F97 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		1DA1C9CB26221CCC00D09F97 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				1DA1C9CC26221CCC00D09F97 /* AppDelegate.swift */,
-				1DA1C9E52622218000D09F97 /* Constants.swift */,
-				1DA1C9CE26221CCC00D09F97 /* SceneDelegate.swift */,
-				1DA1C9D026221CCC00D09F97 /* ViewController.swift */,
-				1DA1C9D526221CCE00D09F97 /* Assets.xcassets */,
-				1DA1C9D726221CCE00D09F97 /* LaunchScreen.storyboard */,
-				1DA1C9DA26221CCE00D09F97 /* Info.plist */,
+				1DA1C9F92622355900D09F97 /* Support Controllers */,
+				1DA1C9F82622355200D09F97 /* Utility */,
+				1DA1C9F62622353900D09F97 /* View Controllers */,
+				1DA1C9F52622353400D09F97 /* Model */,
 			);
 			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		1DA1C9F52622353400D09F97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1DA1C9F62622353900D09F97 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DA1C9EE26222DA400D09F97 /* MenuViewController.swift */,
+				1DA1C9F126222DC400D09F97 /* OrderViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1DA1C9F82622355200D09F97 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1DA1C9DA26221CCE00D09F97 /* Info.plist */,
+				1DA1C9D726221CCE00D09F97 /* LaunchScreen.storyboard */,
+				1DA1C9E52622218000D09F97 /* Constants.swift */,
+				1DA1C9CC26221CCC00D09F97 /* AppDelegate.swift */,
+				1DA1C9CE26221CCC00D09F97 /* SceneDelegate.swift */,
+				1DA1C9D526221CCE00D09F97 /* Assets.xcassets */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		1DA1C9F92622355900D09F97 /* Support Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Support Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +171,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA1C9D126221CCC00D09F97 /* ViewController.swift in Sources */,
+				1DA1C9EF26222DA400D09F97 /* MenuViewController.swift in Sources */,
+				1DA1C9F226222DC400D09F97 /* OrderViewController.swift in Sources */,
 				1DA1C9CD26221CCC00D09F97 /* AppDelegate.swift in Sources */,
 				1DA1C9CF26221CCC00D09F97 /* SceneDelegate.swift in Sources */,
 				1DA1C9E62622218000D09F97 /* Constants.swift in Sources */,
@@ -280,7 +316,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J658BJ7LAB;
-				INFOPLIST_FILE = Restaurant/Info.plist;
+				INFOPLIST_FILE = Restaurant/Utility/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,7 +335,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J658BJ7LAB;
-				INFOPLIST_FILE = Restaurant/Info.plist;
+				INFOPLIST_FILE = Restaurant/Utility/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

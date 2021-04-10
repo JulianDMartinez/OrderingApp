@@ -17,8 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let menuNC = UINavigationController(rootViewController: MenuViewController())
+        let orderVC = OrderViewController()
+        
+        orderVC.tabBarItem = UITabBarItem(title: "Order", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart"))
+        menuNC.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map"))
+        
+        let tabBarVC = UITabBarController()
+        
+        tabBarVC.viewControllers = [menuNC, orderVC]
+        
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
     }
 
