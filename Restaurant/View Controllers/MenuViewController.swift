@@ -76,15 +76,23 @@ class MenuViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         var contentConfiguration = cell.defaultContentConfiguration()
+        let imageWidth = 200.0
+        
+        //Set image size based on placeholder image aspect ratio to prevent cell labels from moving after network call
+        let imageSize = CGSize(width: imageWidth, height: imageWidth/1.3653)
         
         contentConfiguration.text = menuItems[indexPath.row].properties.name
-        contentConfiguration.imageProperties.maximumSize = CGSize(width: 200, height: 200)
-        contentConfiguration.imageProperties.cornerRadius = 20
+        contentConfiguration.imageProperties.maximumSize = imageSize
+        contentConfiguration.imageProperties.cornerRadius = 10
         
         if menuItemImages.count > indexPath.row {
-            contentConfiguration.image = menuItemImages[indexPath.row].image
+            contentConfiguration.image = ImageScaler.scaleToFill(menuItemImages[indexPath.row].image, in: imageSize)
         } else {
-            contentConfiguration.image = UIImage(systemName: "photo")
+            if let placeholderImage = UIImage(systemName: "photo")?.withTintColor(.systemGray) {
+                contentConfiguration.image = ImageScaler.scalePreservingAspectRatio(placeholderImage, targetSize: imageSize)
+            } else {
+                print("System image 'photo' may have been deprecated. Check SF Symbols")
+            }
         }
         
         cell.contentConfiguration = contentConfiguration

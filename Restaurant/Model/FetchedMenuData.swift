@@ -8,6 +8,7 @@
 import Foundation
 
 struct FetchedMenuData: Codable {
+    
     let menuItem: [MenuItem]
     
     private enum CodingKeys: String, CodingKey {
