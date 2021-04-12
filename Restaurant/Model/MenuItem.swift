@@ -1,5 +1,5 @@
 //
-//  Record.swift
+//  MenuItem.swift
 //  Restaurant
 //
 //  Created by Julian Martinez on 4/10/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Records: Codable {
+struct MenuItem: Codable {
     struct Fields: Codable {
         struct Image: Codable {
             struct Thumbnails: Codable {
@@ -61,5 +61,9 @@ struct Records: Codable {
         }
     }
 
-    let fields: Fields
+    let properties: Fields
+    
+    private enum CodingKeys: String, CodingKey {
+        case properties = "fields"
+    }
 }

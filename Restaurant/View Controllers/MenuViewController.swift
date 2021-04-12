@@ -9,7 +9,7 @@ import UIKit
 
 class MenuViewController: UITableViewController {
     
-    var menuItems = [Records]()
+    var menuItems = [MenuItem]()
     var menuItemImages = [MenuItemImage]()
 
     override func viewDidLoad() {
@@ -27,18 +27,18 @@ class MenuViewController: UITableViewController {
     }
     
     func obtainMenu() {
-        NetworkController.shared.fetchRecords { result in
+        NetworkController.shared.fetchMenuItems { result in
             switch result {
             case .success(let fetchedMenuItems):
                 self.menuItems = fetchedMenuItems
                 
                 self.menuItems.sort { (first, second) -> Bool in
-                    first.fields.id < second.fields.id
+                    first.properties.id < second.properties.id
                 }
                 
                 for item in self.menuItems {
                     
-                    NetworkController.shared.fetchImage(menuItem: item) { result in
+                    NetworkController.shared.fetchMenuItemImage(menuItem: item) { result in
                         switch result {
                         case .success(let menuItemImage):
                             
@@ -67,10 +67,6 @@ class MenuViewController: UITableViewController {
         }
     }
     
-    func obtainMenuImage(for row: Int) {
-
-            
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
@@ -81,7 +77,7 @@ class MenuViewController: UITableViewController {
         
         var contentConfiguration = cell.defaultContentConfiguration()
         
-        contentConfiguration.text = menuItems[indexPath.row].fields.name
+        contentConfiguration.text = menuItems[indexPath.row].properties.name
         contentConfiguration.imageProperties.maximumSize = CGSize(width: 200, height: 200)
         contentConfiguration.imageProperties.cornerRadius = 20
         

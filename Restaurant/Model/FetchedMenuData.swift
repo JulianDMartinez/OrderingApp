@@ -8,6 +8,10 @@
 import Foundation
 
 struct FetchedMenuData: Codable {
-    let records: [Records]
+    let menuItem: [MenuItem]
+    
+    private enum CodingKeys: String, CodingKey {
+        case menuItem = "records"
+    }
 }
 

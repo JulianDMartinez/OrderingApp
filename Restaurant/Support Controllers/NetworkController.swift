@@ -12,10 +12,10 @@ struct NetworkController {
     
     static let shared = NetworkController()
     
-    func fetchRecords(completion: @escaping (Result<[Records], Error>) -> Void) {
+    func fetchMenuItems(completion: @escaping (Result<[MenuItem], Error>) -> Void) {
         
         guard let baseURL = URL(string: "https://api.airtable.com/v0/applFdihEUrAxCd9X/Menu") else{
-            print("An error was encountered while accessing the base URL")
+            print("An error was encountered while accessing the fetchMenuItems base URL.")
             return
         }
         
@@ -26,7 +26,7 @@ struct NetworkController {
         ].map{URLQueryItem(name: $0.key, value: $0.value)}
         
         guard let url = urlComponents?.url else {
-            print("There was an error creating the fetchRecords URL")
+            print("There was an error while creating the fetchMenuItems URL.")
             return
         }
         
@@ -35,7 +35,7 @@ struct NetworkController {
                 let jsonDecoder = JSONDecoder()
                 do {
                     let decodedData = try jsonDecoder.decode(FetchedMenuData.self, from: data)
-                    completion(.success(decodedData.records))
+                    completion(.success(decodedData.menuItem))
                 } catch {
                     completion(.failure(error))
                 }
@@ -44,18 +44,18 @@ struct NetworkController {
         task.resume()
     }
     
-    func fetchImage(menuItem: Records, completion: @escaping (Result<MenuItemImage, Error>) -> Void) {
+    func fetchMenuItemImage(menuItem: MenuItem, completion: @escaping (Result<MenuItemImage, Error>) -> Void) {
         
-        let imageURL = menuItem.fields.image[0].thumbnails.large.url
+        let imageURL = menuItem.properties.image[0].thumbnails.large.url
         
         let task = URLSession.shared.dataTask(with: imageURL) { data, response, error in
             if let data = data {
                 guard let image = UIImage(data: data)
                 else {
-                    print("There was an error creating the image")
+                    print("There was an error while creating a menu item image.")
                     return
                 }
-                let imageID = menuItem.fields.id
+                let imageID = menuItem.properties.id
                 completion(.success(MenuItemImage(imageID: imageID, image: image)))
             } else if let error = error {
                 completion(.failure(error))

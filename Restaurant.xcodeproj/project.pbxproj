@@ -16,7 +16,7 @@
 		1DA1C9F226222DC400D09F97 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9F126222DC400D09F97 /* OrderViewController.swift */; };
 		1DA1C9FE2622371600D09F97 /* FetchedMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9FD2622371600D09F97 /* FetchedMenuData.swift */; };
 		1DA1CA012622377D00D09F97 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1CA002622377D00D09F97 /* NetworkController.swift */; };
-		1DA1CA062622409100D09F97 /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1CA052622409100D09F97 /* Records.swift */; };
+		1DA1CA062622409100D09F97 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1CA052622409100D09F97 /* MenuItem.swift */; };
 		1DA1CA0A26225D1100D09F97 /* MenuItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1CA0926225D1100D09F97 /* MenuItemImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		1DA1C9F126222DC400D09F97 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		1DA1C9FD2622371600D09F97 /* FetchedMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedMenuData.swift; sourceTree = "<group>"; };
 		1DA1CA002622377D00D09F97 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
-		1DA1CA052622409100D09F97 /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
+		1DA1CA052622409100D09F97 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		1DA1CA0926225D1100D09F97 /* MenuItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				1DA1C9FD2622371600D09F97 /* FetchedMenuData.swift */,
-				1DA1CA052622409100D09F97 /* Records.swift */,
+				1DA1CA052622409100D09F97 /* MenuItem.swift */,
 				1DA1CA0926225D1100D09F97 /* MenuItemImage.swift */,
 			);
 			path = Model;
@@ -190,7 +190,7 @@
 				1DA1C9CD26221CCC00D09F97 /* AppDelegate.swift in Sources */,
 				1DA1C9CF26221CCC00D09F97 /* SceneDelegate.swift in Sources */,
 				1DA1CA012622377D00D09F97 /* NetworkController.swift in Sources */,
-				1DA1CA062622409100D09F97 /* Records.swift in Sources */,
+				1DA1CA062622409100D09F97 /* MenuItem.swift in Sources */,
 				1DA1C9E62622218000D09F97 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
