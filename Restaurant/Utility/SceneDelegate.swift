@@ -19,14 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let menuNC = UINavigationController(rootViewController: MenuViewController())
-        let orderVC = OrderViewController()
+        let orderNC = UINavigationController(rootViewController: OrderViewController())
         
-        orderVC.tabBarItem = UITabBarItem(title: "Order", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart"))
+        orderNC.tabBarItem = UITabBarItem(title: "Your Order", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart"))
         menuNC.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map"))
         
         let tabBarVC = UITabBarController()
         
-        tabBarVC.viewControllers = [menuNC, orderVC]
+        tabBarVC.viewControllers = [menuNC, orderNC]
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBarVC

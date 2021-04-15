@@ -8,6 +8,7 @@
 import UIKit
 
 class OrderViewController: UITableViewController {
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,10 @@ class OrderViewController: UITableViewController {
     
     func configureVC() {
         view.backgroundColor = .systemBackground
+        title = "Your Order"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .none
     }
    
 }
