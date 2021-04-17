@@ -11,6 +11,14 @@ class MenuViewController: UITableViewController {
     
     var menuItems = [MenuItem]()
     var menuItemImages = [MenuItemImage]()
+    
+    let priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        
+        return formatter
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,14 +84,18 @@ class MenuViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         var contentConfiguration = cell.defaultContentConfiguration()
-        let imageWidth = 200.0
+        let imageWidth = 180.0
         
-        //Set image size based on placeholder image aspect ratio to prevent cell labels from moving after network call
+        //Settting image size based on placeholder image aspect ratio to prevent cell labels from moving after network call
         let imageSize = CGSize(width: imageWidth, height: imageWidth/1.3653)
         
         contentConfiguration.text = menuItems[indexPath.row].properties.name
+        contentConfiguration.secondaryText = priceFormatter.string(from: NSNumber(value: menuItems[indexPath.row].properties.price))
+        contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .callout)
+        contentConfiguration.secondaryTextProperties.color = .secondaryLabel
         contentConfiguration.imageProperties.maximumSize = imageSize
         contentConfiguration.imageProperties.cornerRadius = 10
+        cell.accessoryType = .disclosureIndicator
         
         if menuItemImages.count > indexPath.row {
             contentConfiguration.image = ImageScaler.scaleToFill(menuItemImages[indexPath.row].image, in: imageSize)
@@ -101,7 +113,18 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let destinationVC = MenuItemDetailViewController()
+        let menuItem = menuItems[indexPath.row]
+        
+        destinationVC.menuItemName = menuItem.properties.name
+        destinationVC.menuItemDescription = menuItem.properties.description
+        destinationVC.menuItemImage = menuItemImages[indexPath.row].image
+        destinationVC.menuItemPrice = menuItems[indexPath.row].properties.price
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
    
 }
