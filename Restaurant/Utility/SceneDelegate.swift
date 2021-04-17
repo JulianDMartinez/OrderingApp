@@ -19,21 +19,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let menuNC = UINavigationController(rootViewController: MenuViewController())
-        menuNC.navigationBar.tintColor = .label
-        
+        let favoritesNC = UINavigationController(rootViewController: FavoritesTableViewController())
         let orderNC = UINavigationController(rootViewController: OrderViewController())
         
-        orderNC.tabBarItem = UITabBarItem(title: "Your Order", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart"))
-        menuNC.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map"))
+        orderNC.tabBarItem = UITabBarItem(title: "Your Order", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
+        menuNC.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
+        favoritesNC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         
-        let tabBarVC = UITabBarController()
-        
-        tabBarVC.tabBar.tintColor = .label
-        
-        tabBarVC.viewControllers = [menuNC, orderNC]
+        let tabBarC = UITabBarController()
+        tabBarC.tabBar.tintColor = .label
+        tabBarC.viewControllers = [menuNC, favoritesNC, orderNC]
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = tabBarVC
+        window?.rootViewController = tabBarC
         window?.makeKeyAndVisible()
     }
 

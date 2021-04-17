@@ -20,9 +20,8 @@ class MenuItemDetailViewController: UIViewController {
     
     //Data
     var menuItemImage = UIImage(systemName: "photo")?.withTintColor(.systemGray)
-    var menuItemName = ""
-    var menuItemDescription = ""
-    var menuItemPrice = 0.00
+    var menuItem: MenuItem?
+    
     
     //Views
     let menuItemNameLabel = UILabel()
@@ -48,6 +47,11 @@ class MenuItemDetailViewController: UIViewController {
 
         view.addSubview(menuItemNameLabel)
         
+        guard let menuItemName = menuItem?.properties.name else {
+            print("An error was encountered while retrieving item name in Detail Screen")
+            return
+        }
+        
         menuItemNameLabel.text = menuItemName
         menuItemNameLabel.font = UIFont.boldSystemFont(ofSize: 30)
         menuItemNameLabel.adjustsFontSizeToFitWidth = true
@@ -67,7 +71,7 @@ class MenuItemDetailViewController: UIViewController {
         
         
         guard let menuItemImage = menuItemImage else {
-            print("An error was encountered while accessing the image for the detail screen.")
+            print("An error was encountered while accessing the image for the Detail Screen.")
             return
         }
         
@@ -89,6 +93,11 @@ class MenuItemDetailViewController: UIViewController {
     
     func configureDescriptionView() {
         view.addSubview(menuItemDescriptionView)
+        
+        guard let menuItemDescription = menuItem?.properties.description else {
+            print("An error was encountered while retrieving item description in Detail Screen")
+            return
+        }
         
         menuItemDescriptionView.text = menuItemDescription
         menuItemDescriptionView.font = UIFont.preferredFont(forTextStyle: .body)
@@ -112,6 +121,11 @@ class MenuItemDetailViewController: UIViewController {
         addToOrderButton.layer.cornerRadius = 10
         addToOrderButton.layer.borderWidth = 0.1
         addToOrderButton.clipsToBounds = true
+        
+        guard let menuItemPrice = menuItem?.properties.price else {
+            print("An error was encountered while retrieving item price in Detail Screen")
+            return
+        }
         
         guard let priceString = priceFormatter.string(from: NSNumber(value: menuItemPrice)) else {
             print("An error was encountered while formatting price.")

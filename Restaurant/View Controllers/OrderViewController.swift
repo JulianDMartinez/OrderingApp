@@ -24,6 +24,7 @@ class OrderViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorStyle = .none
+        navigationController?.navigationBar.tintColor = .label
     }
     
     func configureMenuItemNameLabel() {

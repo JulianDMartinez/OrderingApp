@@ -9,10 +9,10 @@ import Foundation
 
 struct FetchedMenuData: Codable {
     
-    let menuItem: [MenuItem]
+    let menuItems: [MenuItem]
     
     private enum CodingKeys: String, CodingKey {
-        case menuItem = "records"
+        case menuItems = "records"
     }
 }
 

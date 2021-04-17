@@ -35,7 +35,7 @@ struct NetworkController {
                 let jsonDecoder = JSONDecoder()
                 do {
                     let decodedData = try jsonDecoder.decode(FetchedMenuData.self, from: data)
-                    completion(.success(decodedData.menuItem))
+                    completion(.success(decodedData.menuItems))
                 } catch {
                     completion(.failure(error))
                 }

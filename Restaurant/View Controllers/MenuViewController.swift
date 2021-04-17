@@ -30,6 +30,7 @@ class MenuViewController: UITableViewController {
         view.backgroundColor = .systemBackground
         title = "Menu"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .label
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorStyle = .none
     }
@@ -115,12 +116,10 @@ class MenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let destinationVC = MenuItemDetailViewController()
-        let menuItem = menuItems[indexPath.row]
         
-        destinationVC.menuItemName = menuItem.properties.name
-        destinationVC.menuItemDescription = menuItem.properties.description
+        destinationVC.menuItem = menuItems[indexPath.row]
         destinationVC.menuItemImage = menuItemImages[indexPath.row].image
-        destinationVC.menuItemPrice = menuItems[indexPath.row].properties.price
+
         
         tableView.deselectRow(at: indexPath, animated: true)
         
