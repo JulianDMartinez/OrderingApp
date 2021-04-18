@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D0B128E262448EE007BE3B1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0B128D262448EE007BE3B1 /* MenuItem.swift */; };
 		1D0B129626245429007BE3B1 /* ImageScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0B129526245429007BE3B1 /* ImageScaler.swift */; };
-		1D79A14F262B558100C38A88 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79A14E262B558100C38A88 /* FavoritesTableViewController.swift */; };
+		1D7A02B4262BD66F00259CDD /* MenuCategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7A02B3262BD66F00259CDD /* MenuCategoryHeader.swift */; };
+		1D7A02B8262CAA9000259CDD /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7A02B7262CAA9000259CDD /* OrderController.swift */; };
 		1DA1C9CD26221CCC00D09F97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9CC26221CCC00D09F97 /* AppDelegate.swift */; };
 		1DA1C9CF26221CCC00D09F97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1C9CE26221CCC00D09F97 /* SceneDelegate.swift */; };
 		1DA1C9D626221CCE00D09F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA1C9D526221CCE00D09F97 /* Assets.xcassets */; };
@@ -26,7 +27,8 @@
 /* Begin PBXFileReference section */
 		1D0B128D262448EE007BE3B1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		1D0B129526245429007BE3B1 /* ImageScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaler.swift; sourceTree = "<group>"; };
-		1D79A14E262B558100C38A88 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		1D7A02B3262BD66F00259CDD /* MenuCategoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryHeader.swift; sourceTree = "<group>"; };
+		1D7A02B7262CAA9000259CDD /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
 		1DA1C9C926221CCC00D09F97 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA1C9CC26221CCC00D09F97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DA1C9CE26221CCC00D09F97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1D7A02B2262BD63F00259CDD /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D7A02B3262BD66F00259CDD /* MenuCategoryHeader.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		1DA1C9C026221CCC00D09F97 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		1DA1C9CB26221CCC00D09F97 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				1D7A02B2262BD63F00259CDD /* Custom Views */,
 				1D0B129026244F1B007BE3B1 /* Extensions */,
 				1DA1C9F92622355900D09F97 /* Support Controllers */,
 				1DA1C9F82622355200D09F97 /* Utility */,
@@ -103,7 +114,6 @@
 			children = (
 				1DA1C9EE26222DA400D09F97 /* MenuViewController.swift */,
 				1DEB8BA2262A0A400003B442 /* MenuItemDetailViewController.swift */,
-				1D79A14E262B558100C38A88 /* FavoritesTableViewController.swift */,
 				1DA1C9F126222DC400D09F97 /* OrderViewController.swift */,
 			);
 			path = "View Controllers";
@@ -127,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				1DA1CA002622377D00D09F97 /* NetworkController.swift */,
+				1D7A02B7262CAA9000259CDD /* OrderController.swift */,
 			);
 			path = "Support Controllers";
 			sourceTree = "<group>";
@@ -203,11 +214,12 @@
 				1D0B129626245429007BE3B1 /* ImageScaler.swift in Sources */,
 				1DA1CA0A26225D1100D09F97 /* MenuItemImage.swift in Sources */,
 				1DA1C9FE2622371600D09F97 /* FetchedMenuData.swift in Sources */,
-				1D79A14F262B558100C38A88 /* FavoritesTableViewController.swift in Sources */,
 				1DA1C9EF26222DA400D09F97 /* MenuViewController.swift in Sources */,
 				1DA1C9F226222DC400D09F97 /* OrderViewController.swift in Sources */,
 				1DA1C9CD26221CCC00D09F97 /* AppDelegate.swift in Sources */,
+				1D7A02B8262CAA9000259CDD /* OrderController.swift in Sources */,
 				1DA1C9CF26221CCC00D09F97 /* SceneDelegate.swift in Sources */,
+				1D7A02B4262BD66F00259CDD /* MenuCategoryHeader.swift in Sources */,
 				1D0B128E262448EE007BE3B1 /* MenuItem.swift in Sources */,
 				1DA1CA012622377D00D09F97 /* NetworkController.swift in Sources */,
 				1DEB8BA3262A0A400003B442 /* MenuItemDetailViewController.swift in Sources */,

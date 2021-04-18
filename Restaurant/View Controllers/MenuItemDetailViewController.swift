@@ -31,7 +31,6 @@ class MenuItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureVC()
         configureMenuItemNameLabel()
         configureImageView()
@@ -41,10 +40,17 @@ class MenuItemDetailViewController: UIViewController {
     
     func configureVC() {
         view.backgroundColor = .systemBackground
+        
+        if OrderController.shared.orderCount == 0 {
+            if let tabItems = self.tabBarController?.tabBar.items {
+                tabItems[1].badgeValue = "\(OrderController.shared.orderCount)"
+                hideTabBarBadge(view: self.tabBarController!.tabBar)
+            }
+        }
     }
     
     func configureMenuItemNameLabel() {
-
+        
         view.addSubview(menuItemNameLabel)
         
         guard let menuItemName = menuItem?.properties.name else {
@@ -82,7 +88,7 @@ class MenuItemDetailViewController: UIViewController {
         menuItemImageView.clipsToBounds = true
         menuItemImageView.image = menuItemImage
         menuItemImageView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             menuItemImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             menuItemImageView.topAnchor.constraint(equalTo: menuItemNameLabel.bottomAnchor, constant: 30),
@@ -133,22 +139,89 @@ class MenuItemDetailViewController: UIViewController {
         }
         
         addToOrderButton.setTitle("Add to Order - \(priceString)", for: .normal)
-        
         addToOrderButton.titleLabel?.numberOfLines = 0
-        
         addToOrderButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        addToOrderButton.addTarget(self, action: #selector(addToOrderButtonTapped), for: .touchUpInside)
+        addToOrderButton.addTarget(self, action: #selector(addToOrderButtonTouchDown), for: .touchDown)
+        addToOrderButton.addTarget(self, action: #selector(addToOrderButtonTouchUp), for: .touchUpInside)
+        addToOrderButton.addTarget(self, action: #selector(addToOrderButtonTouchUp), for: .touchUpOutside)
         
         NSLayoutConstraint.activate([
             addToOrderButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             addToOrderButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addToOrderButton.heightAnchor.constraint(equalToConstant: 55),
-            addToOrderButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75)
+            addToOrderButton.widthAnchor.constraint(equalTo: menuItemImageView.widthAnchor)
         ])
     }
     
-    @objc func addToOrderButtonTapped() {
-        print("Button tapped")
+    @objc func addToOrderButtonTouchDown() {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+            let scaleTransform = CGAffineTransform(scaleX: 0.993, y: 0.993)
+            self.addToOrderButton.transform = scaleTransform
+            self.addToOrderButton.backgroundColor = .systemGray5
+        }
+    }
+    
+    @objc func addToOrderButtonTouchUp() {
+        
+        if let tabItems = self.tabBarController?.tabBar.items {
+            
+            guard let menuItem = menuItem, let menuItemImage = menuItemImage else {
+                print("An error was encountered while adding the menu item to order")
+                return
+            }
+            
+            OrderController.shared.orderCount += 1
+            OrderController.shared.orderItems.append(menuItem)
+            OrderController.shared.orderItemImages.append(menuItemImage)
+            
+            tabItems[1].badgeValue = "\(OrderController.shared.orderCount)"
+            loopThrowViews(view: self.tabBarController!.tabBar)
+        }
+        
+        UIView.animate(withDuration: 0.1, delay: 0.05, options: .allowUserInteraction) {
+            self.addToOrderButton.transform = CGAffineTransform.identity
+            self.addToOrderButton.backgroundColor = .systemGray6
+        }
+        
+    }
+    
+    func loopThrowViews(view:UIView){
+        for subview in (view.subviews){
+            let type = String(describing: type(of: subview))
+            if type == "_UIBadgeView" {
+                
+                if subview.alpha == 0 {
+                    subview.alpha = 1
+                }
+                
+                animateView(view: subview)
+            }
+            else {
+                loopThrowViews(view:subview)
+            }
+            
+        }
+    }
+    
+    func animateView(view: UIView){
+        let shakeAnimation = CABasicAnimation(keyPath: "position")
+        shakeAnimation.duration = 0.05
+        shakeAnimation.repeatCount = 3
+        shakeAnimation.autoreverses = true
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x:view.center.x, y:view.center.y - 1.5))
+        shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x:view.center.x, y:view.center.y + 1.5))
+        view.layer.add(shakeAnimation, forKey: "position")
+    }
+    
+    func hideTabBarBadge(view:UIView){
+        for subview in (view.subviews){
+            let type = String(describing: type(of: subview))
+            if type == "_UIBadgeView" {
+                subview.alpha = 0
+            }
+            else {
+                hideTabBarBadge(view: subview)
+            }
+        }
     }
 }

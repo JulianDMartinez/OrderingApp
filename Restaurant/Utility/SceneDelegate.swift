@@ -19,16 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let menuNC = UINavigationController(rootViewController: MenuViewController())
-        let favoritesNC = UINavigationController(rootViewController: FavoritesTableViewController())
         let orderNC = UINavigationController(rootViewController: OrderViewController())
         
         orderNC.tabBarItem = UITabBarItem(title: "Your Order", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
         menuNC.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "map"), selectedImage: UIImage(systemName: "map.fill"))
-        favoritesNC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
-        
+       
         let tabBarC = UITabBarController()
         tabBarC.tabBar.tintColor = .label
-        tabBarC.viewControllers = [menuNC, favoritesNC, orderNC]
+        tabBarC.viewControllers = [menuNC, orderNC]
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBarC
