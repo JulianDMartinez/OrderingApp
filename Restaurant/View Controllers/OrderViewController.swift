@@ -42,6 +42,7 @@ class OrderViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateUI()
+        tableView.isEditing = false
     }
     
     func configureVC() {
@@ -168,8 +169,8 @@ class OrderViewController: UITableViewController {
     
     func hideTabBarBadge(view:UIView){
         for subview in (view.subviews){
-            let type = String(describing: type(of: subview))
-            if type == "_UIBadgeView" {
+            let subViewType = String(describing: type(of: subview))
+            if subViewType == "_UIBadgeView" {
                 subview.alpha = 0
             }
             else {

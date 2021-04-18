@@ -187,8 +187,8 @@ class MenuItemDetailViewController: UIViewController {
     
     func loopThrowViews(view:UIView){
         for subview in (view.subviews){
-            let type = String(describing: type(of: subview))
-            if type == "_UIBadgeView" {
+            let subViewType = String(describing: type(of: subview))
+            if subViewType == "_UIBadgeView" {
                 
                 if subview.alpha == 0 {
                     subview.alpha = 1
@@ -215,8 +215,8 @@ class MenuItemDetailViewController: UIViewController {
     
     func hideTabBarBadge(view:UIView){
         for subview in (view.subviews){
-            let type = String(describing: type(of: subview))
-            if type == "_UIBadgeView" {
+            let subViewType = String(describing: type(of: subview))
+            if subViewType == "_UIBadgeView" {
                 subview.alpha = 0
             }
             else {

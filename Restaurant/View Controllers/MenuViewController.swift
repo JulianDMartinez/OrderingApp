@@ -99,7 +99,7 @@ class MenuViewController: UITableViewController {
         let headerView = UITableViewHeaderFooterView()
         
         var backgroundConfiguration = UIBackgroundConfiguration.listPlainHeaderFooter()
-        backgroundConfiguration.backgroundColor = .systemGray6.withAlphaComponent(0.95)
+        backgroundConfiguration.backgroundColor = .systemGray6
         
         headerView.backgroundConfiguration = backgroundConfiguration
         
