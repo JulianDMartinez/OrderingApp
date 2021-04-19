@@ -113,7 +113,7 @@ class MenuItemDetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             menuItemDescriptionView.topAnchor.constraint(equalTo: menuItemImageView.bottomAnchor, constant: 20),
-            menuItemDescriptionView.widthAnchor.constraint(equalTo: menuItemImageView.widthAnchor, multiplier: 1.2),
+            menuItemDescriptionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
             menuItemDescriptionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             menuItemDescriptionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25)
         ])
