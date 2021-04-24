@@ -1,5 +1,6 @@
 # OrderingApp
 Template for a menu ordering app, with a design intended to be minimal and simple to use.
 
-https://user-images.githubusercontent.com/65503160/115967071-8847fe00-a4fe-11eb-8f0f-f79cc4d0b63b.mp4
+![RocketSim Recording - iPhone 12 - 2021-04-24 13 07 52](https://user-images.githubusercontent.com/65503160/115967091-a1e94580-a4fe-11eb-844e-a94a345d2558.gif)
+
 
